@@ -50,7 +50,14 @@ ns-wind is [approximate a value near the radar]
 ```
 The above methods can automatically unfold the data. However, you still need to go through all the data manually to make sure the data quality.
 
-To begin with, right click "Examine" button. 
+To begin with, right click "Examine" button. It will show up like this:
+![Examine](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Examine.png)
+Click on the edit button and manully edit the folded rays. Note that there are some differences between these commands:
+1. -Fold and +Fold target to individual point. 
+2. -Fold Ray and +Fold Rad target to the whole rays.
+3. -Fold Ray > and +Fold Ray > target to the rays after you point a single point.
+
+
 ## Convert all the sweep files to be gridded
 After completing editing all wind fields, the data should be converted into cartesian coordinate and be gridded in this step.
 1. Run createVolumes.sh in the terminal under the same directory of sweep files[createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
