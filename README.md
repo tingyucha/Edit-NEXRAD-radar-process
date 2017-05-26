@@ -60,7 +60,7 @@ Click on the edit button and manully edit the folded rays. Note that there are s
 
 ## Convert all the sweep files to be gridded
 After completing editing all wind fields, the data should be converted into cartesian coordinate and be gridded in this step.
-1. Run createVolumes.sh in the terminal under the same directory of sweep files[createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
+1. Run createVolumes.sh in the terminal under the same directory of sweep files  [createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
 
 Run this file can convert all sweep files to cfrad files in the same time.
 ```terminal
