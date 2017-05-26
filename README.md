@@ -31,11 +31,12 @@ RadxConvert -h |more
 
 ## Quality Control of the wind field
 Before unfolding the wind field, make sure that xquartz is running. 
+
 Type "soloii" in the terminal, so the variables fields can be displyed in your xquartz. 
 ```terminal
 soloii
 ```
-A window will pop out just like the following image:
+A window will pop up just like the following image:
 ![Soloii Display](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Soloii_Display.png)
 
 Some algorithms perform pretty well in quality control. To start with, right click "Editor". 
@@ -47,7 +48,9 @@ BB-use-local-wind
 ew-wind is [approximate a value near the radar]
 ns-wind is [approximate a value near the radar]
 ```
+The above methods can automatically unfold the data. However, you still need to go through all the data manually to make sure the data quality.
 
+To begin with, right click "Examine" button. 
 ## Convert all the sweep files to be gridded
 After completing editing all wind fields, the data should be converted into cartesian coordinate and be gridded in this step.
 1. Run createVolumes.sh in the terminal under the same directory of sweep files[createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
