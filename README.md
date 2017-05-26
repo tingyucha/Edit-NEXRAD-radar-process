@@ -38,8 +38,8 @@ soloii
 ```
 A window will pop up just like the following image:
 ![Soloii Display](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Soloii_Display.png)
-
-Some algorithms perform pretty well in quality control. To start with, right click "Editor". 
+ 
+Some algorithms perform pretty well in quality control of Doppler velocity. To start with, right click "Editor". 
 
 ![Editor Commands](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Editor_Commands.png)
 The commands of left panel work pretty well in general conditions. Make sure that the commands are in order. It will influence the QC processing if you don't follow the above order. On the other hand, the commands of right panel need  Note that the following three commands are referring to the location of radar, which means that it should calculate according to the local winds near the radar.
