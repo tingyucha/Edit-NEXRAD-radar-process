@@ -35,6 +35,9 @@ Type "soloii" in the terminal, so the variables fields can be displyed in your x
 ```terminal
 soloii
 ```
+A window will pop out just like the following image:
+![Soloii Display](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Soloii_Display.png)
+
 Some algorithms perform pretty well in quality control. To start with, right click "Editor". 
 
 
