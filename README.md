@@ -54,7 +54,7 @@ To begin with, right click "Examine" button. It will show up like this:
 ![Examine](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Examine.png)
 Click on the edit button and manully edit the folded rays. Note that there are some differences between these commands:
 1. -Fold and +Fold target to individual point. 
-2. -Fold Ray and +Fold Rad target to the whole rays.
+2. -Fold Ray and +Fold Ray target to the whole rays.
 3. -Fold Ray > and +Fold Ray > target to the rays after you point a single point.
 
 
