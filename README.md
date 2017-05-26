@@ -74,6 +74,7 @@ RadxConvert -ag -f swp.* -outdir /DirectoryWhereYouWantPutTheVolumes/
 Those two methods lead to the same results, so you can choose either one of them to generate cfrad files.
 
 2. Run runsRadx2Grid_script.sh 
+
 Radx2Grid performs coordinate transformations from the polar grid and regrid the radar data to a cartesian coordinate. There are several interpolation methods and gridded parameters that you can choose in the file according to your data.
 Before running runsRadx2Grid_script.sh, make sure that download the [Radx2Grid.example.flat.param.txt](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Radx2Grid.example.flat.param.txt) and put them in the same directory with cfrad files. 
 
