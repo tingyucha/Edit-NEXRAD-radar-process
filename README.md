@@ -18,5 +18,23 @@ Before you run it, put the following command in a Terminal so that it can recogn
 export DISPLAY=:0
 ```
 
+## Convert data format
+We have to convert the format of raw data (ar2v file) to sweep files by performing the command of RadxConvert before running soloii.
+```terminal
+RadxConvert -dorade -f name.ar2v
+```
+
+To show all the commands that we can use inside the Radx package, we can run:
+```terminal
+RadxConvert -h |more
+```
+
+## Unfold the wind field
+Before unfolding the wind field, make sure that xquartz is running. 
+Type "soloii" in the terminal, so the variables fields can be displyed in your xquartz. 
+```terminal
+soloii
+```
+Some algorithms perform pretty well in quality control. To start with, right click "Editor". 
 
 
