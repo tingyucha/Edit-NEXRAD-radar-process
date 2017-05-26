@@ -29,7 +29,7 @@ To show all the commands that we can use inside the Radx package, we can run:
 RadxConvert -h |more
 ```
 
-## Unfold the wind field
+## Quality Control of the wind field
 Before unfolding the wind field, make sure that xquartz is running. 
 Type "soloii" in the terminal, so the variables fields can be displyed in your xquartz. 
 ```terminal
@@ -40,4 +40,25 @@ A window will pop out just like the following image:
 
 Some algorithms perform pretty well in quality control. To start with, right click "Editor". 
 
+![Editor Commands](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Editor_Commands.png)
+The commands of left panel work pretty well in general conditions. Make sure that the commands are in order. It will influence the QC processing if you don't follow the above order. On the other hand, the commands of right panel need  Note that the following three commands are referring to the location of radar, which means that it should calculate according to the local winds near the radar.
+```terminal
+BB-use-local-wind
+ew-wind is [approximate a value near the radar]
+ns-wind is [approximate a value near the radar]
+```
 
+## Convert all the sweep files to be gridded
+After completing editing all wind fields, the data should be converted into cartesian coordinate and be gridded in this step.
+1. Run createVolumes.sh in the terminal under the same directory of sweep files[createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
+
+```terminal
+sh createVolumes.sh /DirectoryWhereYouWantPutTheVolumes/
+```
+Or you can use one command to convert sweep files to cfrad files:
+
+
+```terminal
+sh createVolumes.sh /DirectoryWhereYouWantPutTheVolumes/
+```
+2. 
