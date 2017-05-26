@@ -51,14 +51,27 @@ ns-wind is [approximate a value near the radar]
 ## Convert all the sweep files to be gridded
 After completing editing all wind fields, the data should be converted into cartesian coordinate and be gridded in this step.
 1. Run createVolumes.sh in the terminal under the same directory of sweep files[createVolumes.sh](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/createVolumes.sh)
-
+Run this file can convert all sweep files to cfrad files in the same time.
 ```terminal
 sh createVolumes.sh /DirectoryWhereYouWantPutTheVolumes/
 ```
-Or you can use one command to convert sweep files to cfrad files:
-
+Or you can also use one command to convert sweep files to cfrad files:
 
 ```terminal
-sh createVolumes.sh /DirectoryWhereYouWantPutTheVolumes/
+RadxConvert -ag -f swp.* -outdir /DirectoryWhereYouWantPutTheVolumes/
 ```
-2. 
+Those two methods lead to the same results, so you can choose either one of them to generate cfrad files.
+
+2. Run runsRadx2Grid_script.sh 
+Radx2Grid performs coordinate transformations from the polar grid and regrid the radar data to a cartesian coordinate. There are several interpolation methods and gridded parameters that you can choose in the file according to your data.
+Before running runsRadx2Grid_script.sh, make sure that download the [Radx2Grid.example.flat.param.txt](https://github.com/tingyucha/Edit-NEXRAD-radar-process/blob/master/Radx2Grid.example.flat.param.txt) and put them in the same directory with cfrad files. 
+
+```terminal
+sh runsRadx2Grid_script.sh
+```
+
+Also, you can use single command to grid one file:
+
+```terminal
+Radx2Grid -f cfrad.yourfile.nc -params Radx2Grid.example.flat.param.txt
+```
