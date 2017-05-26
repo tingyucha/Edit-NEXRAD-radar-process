@@ -1,0 +1,181 @@
+///////////// interp_mode /////////////////////////////
+//
+// Mode for interpolation.
+// CART: interpolate onto a 3-D Cartesian grid. PPI: interpolate onto a 
+//   2-D Cartesian grid, preserving original radar elevation angles in the 
+//   vertical. POLAR: interpolate onto a regular azimuth angle grid, 
+//   preserving the elevation angles. CART_REORDER: interpolate onto 3-D 
+//   Cartesian grid using the reorder strategy.
+//
+// Type: enum
+// Options:
+//     INTERP_MODE_CART
+//     INTERP_MODE_PPI
+//     INTERP_MODE_POLAR
+//     INTERP_MODE_CART_REORDER
+//
+
+interp_mode = INTERP_MODE_CART;
+
+///////////// min_nvalid_for_interp ///////////////////
+//
+// Minimum number of valid data points for theinterpolation.
+// The program performs an 8-point linear interpolation. This is the 
+//   number of valid data points, out of the possible 8, which must be 
+//   present for interpolation to proceed. A high number will exclude 
+//   marginal points. A low number will include marginal points.
+// Minimum val: 1
+// Maximum val: 8
+// Type: int
+//
+
+min_nvalid_for_interp = 3;
+
+///////////// grid_z_geom /////////////////////////////
+//
+// Grid parameters in z.
+// dz is in km. minz is in km MSL. Not used if 
+//   'interp_to_cartesian_ppis' is true. Applies if 
+//   specify_individual_z_levels is false.
+//
+// Type: struct
+//   typedef struct {
+//      int nz;
+//      double minz;
+//      double dz;
+//   }
+//
+//
+
+grid_z_geom = { 40, 0.5, 0.5 };
+
+///////////// grid_projection /////////////////////////
+//
+// Projection for cartesian grid. See projection param below.
+// 	PROJ_LATLON: simple lat/lon grid (Equidistant Cylindrical)
+// 	PROJ_FLAT: Azimuthal Equidistant (Radar)
+// 	PROJ_LAMBERT_CONF: Lambert Conformal Conic
+// 	PROJ_LAMBERT_AZIM: Lambert Azimuthal Equal Area
+// 	PROJ_MERCATOR: Mercator - EW orientation
+// 	PROJ_TRANS_MERCATOR: Tranverse Mercator - NS orientation
+// 	PROJ_POLAR_STEREO: Stereographic- polar aspect
+// 	PROJ_OBLIQUE_STEREO: Stereographic - oblique aspect
+// 	PROJ_ALBERS: Albers Equal Area Conic
+// 	PROJ_VERT_PERSP: Vertical Perspective (satellite view).
+//
+// Type: enum
+// Options:
+//     PROJ_LATLON
+//     PROJ_LAMBERT_CONF
+//     PROJ_MERCATOR
+//     PROJ_POLAR_STEREO
+//     PROJ_FLAT
+//     PROJ_OBLIQUE_STEREO
+//     PROJ_TRANS_MERCATOR
+//     PROJ_ALBERS
+//     PROJ_LAMBERT_AZIM
+//     PROJ_VERT_PERSP
+//
+
+grid_projection = PROJ_FLAT;
+
+///////////// grid_xy_geom ////////////////////////////
+//
+// Grid parameters in x,y.
+// Units in km, except for LATLON, which is in degrees.
+//
+// Type: struct
+//   typedef struct {
+//      int nx;
+//      int ny;
+//      double minx;
+//      double miny;
+//      double dx;
+//      double dy;
+//   }
+//
+//
+
+grid_xy_geom = { 300, 300, -150, -150, 1, 1 };
+
+///////////// center_grid_on_radar ////////////////////
+//
+// Option to set the grid origin at the radar.
+// If true, the latitude and longitude of the grid origin will be set at 
+//   the radar location. If false, grid_origin_lat and grid_origin_lon 
+//   will be used.
+// Type: boolean
+//
+
+center_grid_on_radar = TRUE;
+
+///////////// transform_fields_for_interpolation //////
+//
+// Option to perform a transform on specified fields for interpolation.
+// Type: boolean
+//
+
+transform_fields_for_interpolation = TRUE;
+
+///////////// transform_fields ////////////////////////
+//
+// Transform fields for interpolation.
+
+// If the output_name is the same as the input_name, this field is
+//   transformed in-place. Otherwise a copy is made.
+
+// TRANSFORM_DB_TO_LINEAR_AND_BACK: transform a field in dB units to
+//   linear units, perform the interpolation, and then transform back to
+//   dB units before writing out.
+
+// TRANSFORM_LINEAR_TO_DB: transform a field from linear units to dB
+//   units, perform the interpolation, and write out in dB units.
+//
+// Type: struct
+//   typedef struct {
+//      string input_name;
+//      string output_name;
+//      string output_units;
+//      interp_transform_t transform;
+//        Options:
+//          TRANSFORM_DB_TO_LINEAR_AND_BACK
+//          TRANSFORM_LINEAR_TO_DB
+//   }
+//
+// 1D array - variable length.
+//
+
+transform_fields = {
+  {
+    input_name = "DZ",
+    output_name = "DZ",
+    output_units = "dBZ",
+    transform = TRANSFORM_DB_TO_LINEAR_AND_BACK
+  }
+};
+
+///////////// netcdf_file_prefix //////////////////////
+//
+// User-specified output file prefix, comes before date_time.
+// Type: string
+//
+
+netcdf_file_prefix = "CHILL_";
+
+///////////// name_file_from_start_time ///////////////
+//
+// If true, name the output file using the start time.
+// If false, the end time is used, in the MDV tradition.
+// Type: boolean
+//
+
+name_file_from_start_time = TRUE;
+
+///////////// ncf_institution /////////////////////////
+//
+// Institution string for netCDF file.
+// Type: string
+//
+
+ncf_institution = "CSU Radar Meteorology Group";
+
